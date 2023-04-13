@@ -1,7 +1,7 @@
 import math
 
 def shell_sort2(nums: list [int]) -> None:
-    gap = math.pow(2, math.log(len(nums))) + 1
+    gap = math.pow(2, math.log(len(nums), 2)) + 1
     gap = int(gap)
 
     count = 0

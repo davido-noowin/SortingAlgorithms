@@ -5,7 +5,7 @@ from merge_sort import merge_sort
 from shell_sort1 import shell_sort1
 from shell_sort2 import shell_sort2
 from shell_sort3 import shell_sort3
-#from shell_sort4 import shell_sort4
+from shell_sort4 import shell_sort4
 #from hybrid_sort1 import hybrid_sort1
 #from hybrid_sort2 import hybrid_sort2
 #from hybrid_sort3 import hybrid_sort3
