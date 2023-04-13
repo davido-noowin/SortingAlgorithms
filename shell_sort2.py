@@ -1,23 +1,26 @@
 import math
 
 def shell_sort2(nums: list [int]) -> None:
-    gap = math.pow(2, math.log(len(nums), 2)) + 1
+    gap = math.pow(2, math.log2(len(nums))) + 1
     gap = int(gap)
 
-    count = 0
-    for i in range(0, gap):
-        for j in range(i, len(nums)):
-            temp = nums[j]
-            a = j
+    
+    while gap > 0:
+        for i in range(gap, len(nums)):
+            temp = nums[i]
+            a = i
 
-            while (a >= i and temp < nums[a - i]):
-                nums[a] = nums[a - i]
-                a -= i
+            while (a >= gap and temp < nums[a - gap]):
+                nums[a] = nums[a - gap]
+                a -= gap
 
             nums[a] = temp
 
-        count += 1
-        i = math.pow(2, count) + 1
+        gap = ((gap - 1) // 2) + 1
+
+        if (gap == 1):
+            break
+
 
 
 n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
