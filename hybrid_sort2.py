@@ -1,15 +1,20 @@
 from insertion_sort import insertion_sort
 from merge_sort import merge
 
-def hybrid_sort2(nums: list[int], H: int) -> None:
+half = -1
+
+def hybrid_sort2(nums: list[int]) -> None:
     current_size = len(nums)
 
-    if (current_size > H):
+    if (half == -1):
+        half = current_size // 4
+
+    if (current_size > half):
         num1 = nums[0:len(nums)//2]
         num2 = nums[len(nums)//2:len(nums)]
 
-        hybrid_sort2(num1, H)
-        hybrid_sort2(num2, H)
+        hybrid_sort2(num1)
+        hybrid_sort2(num2)
 
         new_list = nums.copy()
         merge(new_list, num1, num2)
