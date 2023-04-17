@@ -1,13 +1,25 @@
-import math
+def genGap(size : int) -> list [int]:
+    stack = [1]
+    i = 0
+    j = 0
+    while (i <= size and j <= size):
+        multiple_of_2 = 2 * stack[i]
+        multiple_of_3 = 3 * stack[j]
+        minimum = min(multiple_of_2, multiple_of_3)
+        stack.append(minimum)
+        if multiple_of_2 <= multiple_of_3:
+            i += 1
+        if multiple_of_2 >= multiple_of_3:
+            j += 1
+
+    return stack
 
 
 def shell_sort3(nums: list [int]) -> None:
-    size = len(nums)
-    i = size
-    j = size
-    gap = (int(math.pow(2, size) * math.pow(3, size)))
+    r = genGap(len(nums))
+    gap = r.pop()
 
-    while gap > 0:
+    while len(r) > 0:
         for i in range(gap, len(nums)):
             temp = nums[i]
             a = i
@@ -18,19 +30,11 @@ def shell_sort3(nums: list [int]) -> None:
 
             nums[a] = temp
 
-        min_num = -1
-
-        max_num_2 = (int(math.pow(2, i-1) * math.pow(3, j)))
-        max_num_3 = (int(math.pow(2, i) * math.pow(3, j-1)))
-
-        gap = max(max_num_2, max_num_3)
-        min_num = min(max_num_2, max_num_3)
-        
+        gap = r.pop()
 
 
+# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-n = [1, 6, 14] #, 11, 2, 15, 21, 67, 3, 5, 19]
+# shell_sort3(n)
 
-shell_sort3(n)
-
-print(n)
+# print(n)

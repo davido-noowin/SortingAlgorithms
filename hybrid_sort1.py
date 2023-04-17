@@ -19,8 +19,8 @@ def hybrid_sort1(nums: list[int], H: int) -> None:
     else:
         insertion_sort(nums)
 
-n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
+# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-hybrid_sort1(n, len(n)//2)
+# hybrid_sort1(n, len(n)//2)
 
-print(n)
+# print(n)

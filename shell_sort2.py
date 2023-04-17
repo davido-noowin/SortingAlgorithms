@@ -3,7 +3,6 @@ import math
 def shell_sort2(nums: list [int]) -> None:
     gap = math.pow(2, math.log2(len(nums))) + 1
     gap = int(gap)
-
     
     while gap > 0:
         for i in range(gap, len(nums)):
@@ -23,8 +22,8 @@ def shell_sort2(nums: list [int]) -> None:
 
 
 
-n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
+# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-shell_sort2(n)
+# shell_sort2(n)
 
-print(n)
+# print(n)

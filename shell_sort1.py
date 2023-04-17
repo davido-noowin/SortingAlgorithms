@@ -14,8 +14,8 @@ def shell_sort1(nums: list [int]) -> None:
         gap //= 2
 
 
-n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
+# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-shell_sort1(n)
+# shell_sort1(n)
 
-print(n)
+# print(n)

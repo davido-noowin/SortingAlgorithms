@@ -1,4 +1,4 @@
-def gapGeneration(size: int):
+def gapGeneration(size: int) -> int:
     if size % 2 == 0:
         gap = 9 * (2 ** size) - 9 * 2 ** (size / 2) + 1
     else:
@@ -26,8 +26,8 @@ def shell_sort4(nums: list [int]) -> None:
         gap = gapGeneration(length)
 
 
-n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
+# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-shell_sort4(n)
+# shell_sort4(n)
 
-print(n)
+# print(n)
