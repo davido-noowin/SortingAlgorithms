@@ -1,11 +1,13 @@
 from insertion_sort import insertion_sort
 from merge_sort import merge
+# import random
 
 half = -1
 
 def hybrid_sort1(nums: list[int]) -> None:
     current_size = len(nums)
-    
+
+    global half
     if (half == -1):
         half = current_size // 2
 
@@ -24,8 +26,13 @@ def hybrid_sort1(nums: list[int]) -> None:
     else:
         insertion_sort(nums)
 
-# n = [1, 6, 14, 11, 2, 15, 21, 67, 3, 5, 19]
 
-# hybrid_sort1(n, len(n)//2)
+'''
+n = [i for i in range(9000)]
+random.shuffle(n)
+hybrid_sort1(n)
 
-# print(n)
+with open('hybrid_sort1_test.txt', 'w') as f:
+    for i in n:
+        f.write(str(i) + '\n')
+'''

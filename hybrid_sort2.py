@@ -6,6 +6,7 @@ half = -1
 def hybrid_sort2(nums: list[int]) -> None:
     current_size = len(nums)
 
+    global half
     if (half == -1):
         half = current_size // 4
 

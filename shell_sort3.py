@@ -26,7 +26,7 @@ def genGap(size : int) -> list [int]:
 
 def shell_sort3(nums: list [int]) -> None:
     r = genGap(len(nums))
-    print(r)
+    # print(r)
     gap = r.pop()
 
     while gap > 0:

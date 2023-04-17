@@ -23,7 +23,7 @@ def gapGeneration(maximum: int) -> list [int]:
 def shell_sort4(nums: list [int]) -> None:
     length = len(nums)
     r = gapGeneration(length)
-    print(r)
+    # print(r)
     gap = r.pop()
 
     while gap > 0:
