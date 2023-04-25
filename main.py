@@ -63,7 +63,7 @@ def getDataPath(permutation:PermutationType, algorithm_name:str) -> Path:
 def saveData(algorithm_name:str, permutation:PermutationType, size:int, elapsed_time:int):
     path = getDataPath(permutation, algorithm_name)
 
-    with path.open('a') as csvfile:
+    with path.open('a', newline = '') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([size, elapsed_time])
 

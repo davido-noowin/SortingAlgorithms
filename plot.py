@@ -5,7 +5,8 @@ from collections import defaultdict
 from main import PermutationType
 from pathlib import Path
 
-DATA_DIRECTORY = Path('data')
+
+DATA_DIRECTORY = Path('SortingAlgorithms\\data')
 
 def getDataPath(permutation:PermutationType, algorithm_name:str) -> Path:
     directory =  DATA_DIRECTORY / algorithm_name
@@ -16,6 +17,7 @@ def getDataPath(permutation:PermutationType, algorithm_name:str) -> Path:
 
 def loadData(permutation:PermutationType, algorithm_name:str) -> dict[int, list[int]]:
     path = getDataPath(permutation, algorithm_name)
+    print(path)
 
     data = defaultdict(list)
     with path.open() as csvfile:
@@ -26,4 +28,4 @@ def loadData(permutation:PermutationType, algorithm_name:str) -> dict[int, list[
 
     return data
 
-print(loadData(PermutationType.UNIFORMLY_DISTRIBUTED, 'merge_sort'))
+print(loadData(PermutationType.UNIFORMLY_DISTRIBUTED, 'shell_sort3'))
