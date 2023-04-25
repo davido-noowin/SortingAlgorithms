@@ -28,7 +28,7 @@ SORTING_ALGORITHMS = {
     'hybrid_sort3' : requirements.hybrid_sort3
 }
 
-DATA_DIRECTORY = Path()
+DATA_DIRECTORY = Path('data')
 
 
 parser = argparse.ArgumentParser(description= 'Benchmark Several Sorting Algorithms', 
