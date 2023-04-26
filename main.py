@@ -94,12 +94,11 @@ def benchmark(algorithm:Callable[[list[int]], None], size:int, permutation:Permu
 
     saveData(args.algorithm_name, permutation, size, elapsed_time)
 
-    print(elapsed_time)
-
 
 if __name__ == '__main__':
     args = parser.parse_args()
     args.permutation = PermutationType(args.permutation)
     args.algorithm = SORTING_ALGORITHMS[args.algorithm_name]
 
-    benchmark(args.algorithm, args.size, args.permutation)
+    for i in range(20):
+        benchmark(args.algorithm, args.size, args.permutation)
