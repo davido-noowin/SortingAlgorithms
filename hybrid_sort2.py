@@ -8,7 +8,7 @@ def hybrid_sort2(nums: list[int]) -> None:
 
     global half
     if (half == -1):
-        half = current_size // 4
+        half = int(current_size ** (1/4))
 
     if (current_size > half):
         num1 = nums[0:len(nums)//2]

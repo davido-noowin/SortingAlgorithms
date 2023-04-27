@@ -41,7 +41,7 @@ def loadAverageData(permutation:PermutationType, algorithm_name:str) -> tuple[li
     return sizes, average_times
 
 
-def addToPlot(permutation:PermutationType, algorithm_name:str):
+def addToPlot(permutation:PermutationType, algorithm_name:str, color:str):
     sizes, average_times = loadAverageData(permutation, algorithm_name)
 
     x,y = sizes[3:], average_times[3:]
@@ -55,11 +55,18 @@ def addToPlot(permutation:PermutationType, algorithm_name:str):
 
     expected_y = fit(logx)
 
+    
     # plotting the line of best fit
-    plt.loglog(x, numpy.exp(expected_y), base = 2)
+    equation = f'{algorithm_name} ({permutation.value}): log C(n) ~ {numpy.round(m, 5)} log n + {numpy.round(b, 5)})'
+    plt.loglog(x, numpy.exp(expected_y), base = 2, color = color)
+
+    plt.text(2**9, y[-1], equation).set_color(color)
+
 
 
 if __name__ == '__main__':
-    addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort')
+    addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort', 'red')
+    addToPlot(PermutationType.ALMOST_SORTED, 'insertion_sort', 'green')
+    addToPlot(PermutationType.REVERSE_SORTED, 'insertion_sort', 'blue')
 
     plt.show()
