@@ -14,6 +14,7 @@ python main.py 50000 --algorithm merge_sort --permutation reverse
 python main.py 75000 --algorithm merge_sort --permutation reverse
 python main.py 100000 --algorithm merge_sort --permutation reverse
 python main.py 250000 --algorithm merge_sort --permutation reverse
+python main.py 500000 --algorithm merge_sort --permutation reverse
 
 
 python main.py 500 --algorithm merge_sort --permutation almost-sorted
@@ -29,6 +30,7 @@ python main.py 50000 --algorithm merge_sort --permutation almost-sorted
 python main.py 75000 --algorithm merge_sort --permutation almost-sorted
 python main.py 100000 --algorithm merge_sort --permutation almost-sorted
 python main.py 250000 --algorithm merge_sort --permutation almost-sorted
+python main.py 500000 --algorithm merge_sort --permutation almost-sorted
 
 
 python main.py 500 --algorithm merge_sort --permutation random
@@ -44,3 +46,4 @@ python main.py 50000 --algorithm merge_sort --permutation random
 python main.py 75000 --algorithm merge_sort --permutation random
 python main.py 100000 --algorithm merge_sort --permutation random
 python main.py 250000 --algorithm merge_sort --permutation random
+python main.py 500000 --algorithm merge_sort --permutation random

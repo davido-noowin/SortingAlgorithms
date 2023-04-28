@@ -51,22 +51,28 @@ def addToPlot(permutation:PermutationType, algorithm_name:str, color:str):
     m, b = numpy.polyfit(logx, logy, 1)
     fit = numpy.poly1d((m, b))
 
-    plt.loglog(sizes, average_times, '.', base = 2)
+    plt.loglog(sizes, average_times, '.', base = 2, color = color)
 
     expected_y = fit(logx)
 
     
     # plotting the line of best fit
     equation = f'{algorithm_name} ({permutation.value}): log C(n) ~ {numpy.round(m, 5)} log n + {numpy.round(b, 5)})'
-    plt.loglog(x, numpy.exp(expected_y), base = 2, color = color)
+    plt.loglog(x, numpy.exp(expected_y), base = 2, color = color, label = equation)
 
-    plt.text(2**9, y[-1], equation).set_color(color)
+    #plt.text(2**9, y[-1], equation).set_color(color)
+    plt.xlabel('Input Size (n, # of elements)')
+    plt.ylabel('Elapsed Time (in nanoseconds)')
+    plt.title(f'{algorithm_name} Plot')
+    
+    return equation
 
 
 
 if __name__ == '__main__':
-    addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort', 'red')
-    addToPlot(PermutationType.ALMOST_SORTED, 'insertion_sort', 'green')
-    addToPlot(PermutationType.REVERSE_SORTED, 'insertion_sort', 'blue')
+    e1 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'merge_sort', 'red')
+    e2 = addToPlot(PermutationType.ALMOST_SORTED, 'merge_sort', 'green')
+    e3 = addToPlot(PermutationType.REVERSE_SORTED, 'merge_sort', 'blue')
+    plt.legend([None, e1, None, e2, None, e3], loc = 'upper left')
 
     plt.show()
