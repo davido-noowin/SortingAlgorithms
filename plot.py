@@ -5,8 +5,8 @@ from collections import defaultdict
 from main import PermutationType
 from pathlib import Path
 
-
-DATA_DIRECTORY = Path('CS161\\SortingAlgorithms\\data')
+# 'CS161\\SortingAlgorithms\\data'
+DATA_DIRECTORY = Path('SortingAlgorithms\\data')
 
 def getDataPath(permutation:PermutationType, algorithm_name:str) -> Path:
     directory =  DATA_DIRECTORY / algorithm_name
@@ -70,9 +70,9 @@ def addToPlot(permutation:PermutationType, algorithm_name:str, color:str):
 
 
 if __name__ == '__main__':
-    e1 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'merge_sort', 'red')
-    e2 = addToPlot(PermutationType.ALMOST_SORTED, 'merge_sort', 'green')
-    e3 = addToPlot(PermutationType.REVERSE_SORTED, 'merge_sort', 'blue')
+    e1 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort', 'red')
+    e2 = addToPlot(PermutationType.ALMOST_SORTED, 'insertion_sort', 'green')
+    e3 = addToPlot(PermutationType.REVERSE_SORTED, 'insertion_sort', 'blue')
     plt.legend([None, e1, None, e2, None, e3], loc = 'upper left')
 
     plt.show()
