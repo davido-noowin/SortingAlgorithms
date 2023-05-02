@@ -6,7 +6,7 @@ from main import PermutationType
 from pathlib import Path
 
 # 'CS161\\SortingAlgorithms\\data'
-DATA_DIRECTORY = Path('SortingAlgorithms\\data')
+DATA_DIRECTORY = Path('CS161\\SortingAlgorithms\\data')
 
 def getDataPath(permutation:PermutationType, algorithm_name:str) -> Path:
     directory =  DATA_DIRECTORY / algorithm_name
@@ -51,7 +51,7 @@ def addToPlot(permutation:PermutationType, algorithm_name:str, color:str):
     m, b = numpy.polyfit(logx, logy, 1)
     fit = numpy.poly1d((m, b))
 
-    plt.loglog(sizes, average_times, '.', base = 2, color = color)
+    plt.loglog(sizes, average_times, '.', base = 2, color = color, label = '_hide')
 
     expected_y = fit(logx)
 
@@ -63,16 +63,23 @@ def addToPlot(permutation:PermutationType, algorithm_name:str, color:str):
     #plt.text(2**9, y[-1], equation).set_color(color)
     plt.xlabel('Input Size (n, # of elements)')
     plt.ylabel('Elapsed Time (in nanoseconds)')
-    plt.title(f'{algorithm_name} Plot')
+    plt.title(f'{algorithm_name.capitalize()}')
     
     return equation
 
 
 
 if __name__ == '__main__':
-    e1 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort', 'red')
-    e2 = addToPlot(PermutationType.ALMOST_SORTED, 'insertion_sort', 'green')
-    e3 = addToPlot(PermutationType.REVERSE_SORTED, 'insertion_sort', 'blue')
-    plt.legend([None, e1, None, e2, None, e3], loc = 'upper left')
+    #e9 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'hybrid_sort1', 'orange')
+    e0 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'hybrid_sort3', 'purple')
+    e1 = addToPlot(PermutationType.ALMOST_SORTED, 'hybrid_sort3', 'red')
+    e2 = addToPlot(PermutationType.REVERSE_SORTED, 'hybrid_sort3', 'green')
+    #e3 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'insertion_sort', 'black')
+    #e4 = addToPlot(PermutationType.UNIFORMLY_DISTRIBUTED, 'shell_sort3', 'yellow')
+    #e5 = addToPlot(PermutationType.ALMOST_SORTED, 'insertion_sort', 'pink')
+    #e6 = addToPlot(PermutationType.REVERSE_SORTED, 'insertion_sort', 'blue')
+    #e2 = addToPlot(PermutationType.ALMOST_SORTED, 'shell_sort1', 'green')
+    #e3 = addToPlot(PermutationType.REVERSE_SORTED, 'shell_sort1', 'blue')
+    plt.legend(loc = 'upper left')
 
     plt.show()
